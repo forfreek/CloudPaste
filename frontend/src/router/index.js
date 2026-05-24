@@ -48,25 +48,29 @@ const PasteView = createOfflineAwareImport(() => import("../modules/paste/public
 const FileView = createOfflineAwareImport(() => import("../modules/fileshare/public/FileView.vue"), "文件预览页面");
 const MountExplorerView = createOfflineAwareImport(() => import("../modules/fs/MountExplorerView.vue"), "挂载浏览器");
 
-// 路由配置 - 完全对应原有的页面逻辑
+// 路由配置 - 优先落地图床/文件上传页面
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: HomeView,
+    name: "Upload",
+    component: UploadView, // 👈 根路径直接加载上传组件（图床）
     meta: {
-      title: "CloudPaste - 在线剪贴板",
+      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板", // 👈 换上新标题
+      originalPage: "upload",
+    },
+  },
+  {
+    path: "/paste", // 👈 把原来的首页移到 /paste，当作云剪切板的后门入口
+    name: "Home",
+    component: HomeView, // 👈 对应的依然是原本的 MarkdownEditorView.vue
+    meta: {
+      title: "在线剪贴板 - PastePic",
       originalPage: "home",
     },
   },
   {
-    path: "/upload",
-    name: "Upload",
-    component: UploadView,
-    meta: {
-      title: "文件上传 - CloudPaste",
-      originalPage: "upload",
-    },
+    path: "/upload", // 👈 保留这个路由，直接重定向到根路径，防止原项目的某些跳转逻辑失效
+    redirect: "/",
   },
   // 管理员登录页面
   {
