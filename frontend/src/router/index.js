@@ -78,7 +78,7 @@ const routes = [
     name: "AdminLogin",
     component: createOfflineAwareImport(() => import("../modules/admin/views/AdminLoginView.vue"), "管理员登录"),
     meta: {
-      title: "登录 - CloudPaste",
+      title: "登录 - Pastepic",
       originalPage: "admin-login",
     },
   },
@@ -87,7 +87,7 @@ const routes = [
     path: "/admin",
     component: createOfflineAwareImport(() => import("../modules/admin/views/AdminLayout.vue"), "管理面板布局"),
     meta: {
-      title: "管理面板 - CloudPaste",
+      title: "管理面板 - Pastepic",
       originalPage: "admin",
       requiresAuth: true,
     },
@@ -97,7 +97,7 @@ const routes = [
         name: "AdminDashboard",
         component: createOfflineAwareImport(() => import("../modules/admin/views/DashboardView.vue"), "仪表板"),
         meta: {
-          title: "仪表板 - CloudPaste",
+          title: "仪表板 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -106,7 +106,7 @@ const routes = [
         name: "AdminTextManagement",
         component: createOfflineAwareImport(() => import("../modules/paste/admin/TextManagementView.vue"), "文本管理"),
         meta: {
-          title: "文本管理 - CloudPaste",
+          title: "文本管理 - Pastepic",
           requiredPermissions: ["text"], // 需要文本权限
         },
       },
@@ -115,7 +115,7 @@ const routes = [
         name: "AdminFileManagement",
         component: createOfflineAwareImport(() => import("../modules/fileshare/admin/FileManagementView.vue"), "文件管理"),
         meta: {
-          title: "文件管理 - CloudPaste",
+          title: "文件管理 - Pastepic",
           requiredPermissions: ["file"], // 需要文件权限
         },
       },
@@ -124,7 +124,7 @@ const routes = [
         name: "AdminKeyManagement",
         component: createOfflineAwareImport(() => import("../modules/admin/views/KeyManagementView.vue"), "密钥管理"),
         meta: {
-          title: "密钥管理 - CloudPaste",
+          title: "密钥管理 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -133,7 +133,7 @@ const routes = [
         name: "AdminMountManagement",
         component: createOfflineAwareImport(() => import("../modules/admin/views/MountManagementView.vue"), "挂载管理"),
         meta: {
-          title: "挂载管理 - CloudPaste",
+          title: "挂载管理 - Pastepic",
           requiredPermissions: ["mount"], // 需要挂载权限
         },
       },
@@ -142,7 +142,7 @@ const routes = [
         name: "AdminFsMetaManagement",
         component: createOfflineAwareImport(() => import("../modules/admin/views/FsMetaManagementView.vue"), "元信息管理"),
         meta: {
-          title: "元信息管理 - CloudPaste",
+          title: "元信息管理 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -151,7 +151,7 @@ const routes = [
         name: "AdminStorage",
         component: createOfflineAwareImport(() => import("../modules/admin/views/StorageConfigView.vue"), "存储管理"),
         meta: {
-          title: "存储管理 - CloudPaste",
+          title: "存储管理 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -167,7 +167,7 @@ const routes = [
         name: "AdminScheduledJobs",
         component: createOfflineAwareImport(() => import("../modules/admin/views/ScheduledJobsView.vue"), "定时任务管理"),
         meta: {
-          title: "定时任务管理 - CloudPaste",
+          title: "定时任务管理 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -176,7 +176,7 @@ const routes = [
         name: "AdminScheduledJobCreate",
         component: createOfflineAwareImport(() => import("../modules/admin/views/ScheduledJobFormView.vue"), "创建定时任务"),
         meta: {
-          title: "创建定时任务 - CloudPaste",
+          title: "创建定时任务 - Pastepic",
           adminOnly: true,
         },
       },
@@ -185,7 +185,7 @@ const routes = [
         name: "AdminScheduledJobEdit",
         component: createOfflineAwareImport(() => import("../modules/admin/views/ScheduledJobFormView.vue"), "编辑定时任务"),
         meta: {
-          title: "编辑定时任务 - CloudPaste",
+          title: "编辑定时任务 - Pastepic",
           adminOnly: true,
         },
       },
@@ -194,7 +194,7 @@ const routes = [
         name: "AdminAccountManagement",
         component: createOfflineAwareImport(() => import("../modules/admin/views/AccountManagementView.vue"), "账号管理"),
         meta: {
-          title: "账号管理 - CloudPaste",
+          title: "账号管理 - Pastepic",
           requiresAuth: true, // 管理员和API密钥用户都可访问
         },
       },
@@ -203,7 +203,7 @@ const routes = [
         name: "AdminBackup",
         component: createOfflineAwareImport(() => import("../modules/admin/views/BackupView.vue"), "数据备份"),
         meta: {
-          title: "数据备份 - CloudPaste",
+          title: "数据备份 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -212,7 +212,7 @@ const routes = [
         name: "AdminTasks",
         component: createOfflineAwareImport(() => import("../modules/admin/views/AdminTasksView.vue"), "任务管理"),
         meta: {
-          title: "任务管理 - CloudPaste",
+          title: "任务管理 - Pastepic",
           requiredPermissions: ["mount"],
         },
       },
@@ -221,7 +221,7 @@ const routes = [
         name: "AdminFsIndexManagement",
         component: createOfflineAwareImport(() => import("../modules/admin/views/FsIndexManagement.vue"), "文件系统索引管理"),
         meta: {
-          title: "索引管理 - CloudPaste",
+          title: "索引管理 - Pastepic",
           adminOnly: true, // 只有管理员可访问
         },
       },
@@ -233,7 +233,7 @@ const routes = [
             name: "AdminGlobalSettings",
             component: createOfflineAwareImport(() => import("../modules/admin/views/settings/GlobalSettingsView.vue"), "全局设置"),
             meta: {
-              title: "全局设置 - CloudPaste",
+              title: "全局设置 - Pastepic",
               adminOnly: true, // 只有管理员可访问
             },
           },
@@ -252,7 +252,7 @@ const routes = [
             name: "AdminPreviewSettings",
             component: createOfflineAwareImport(() => import("../modules/admin/views/settings/PreviewSettingsView.vue"), "预览设置"),
             meta: {
-              title: "预览设置 - CloudPaste",
+              title: "预览设置 - Pastepic",
               adminOnly: true, // 只有管理员可访问
             },
           },
@@ -261,7 +261,7 @@ const routes = [
             name: "AdminSiteSettings",
             component: createOfflineAwareImport(() => import("../modules/admin/views/settings/SiteSettingsView.vue"), "站点设置"),
             meta: {
-              title: "站点设置 - CloudPaste",
+              title: "站点设置 - Pastepic",
               adminOnly: true, // 只有管理员可访问
             },
           },
