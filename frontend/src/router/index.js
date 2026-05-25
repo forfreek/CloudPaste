@@ -52,26 +52,34 @@ const MountExplorerView = createOfflineAwareImport(() => import("../modules/fs/M
 const routes = [
   {
     path: "/",
-    name: "Upload",
-    component: UploadView, // 👈 根路径直接加载上传组件（图床）
+    name: "Upload", // 👈 根路径加载上传（图床），满足你主打图床的刚需
+    component: UploadView, 
     meta: {
-      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板", // 👈 换上新标题
+      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板", 
       originalPage: "upload",
     },
   },
   {
-    path: "/paste", // 👈 把原来的首页移到 /paste，当作云剪切板的后门入口
+    path: "/paste", // 👈 文本工具的真正容身之所
     name: "Home",
-    component: HomeView, // 👈 对应的依然是原本的 MarkdownEditorView.vue
+    component: HomeView, 
     meta: {
       title: "在线剪贴板 - PastePic",
       originalPage: "home",
     },
   },
   {
-    path: "/upload", // 👈 保留这个路由，直接重定向到根路径，防止原项目的某些跳转逻辑失效
-    redirect: "/",
+    path: "/upload", 
+    // 👈 核心改动：删掉之前的 redirect: "/"，直接让它加载 UploadView 
+    // 这样当文本工具想要切走，或者原系统跳转 /upload 时，大家都各自有清晰的去处，不再打架
+    name: "UploadLegacy", 
+    component: UploadView,
+    meta: {
+      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板", 
+      originalPage: "upload",
+    },
   },
+]
   // 管理员登录页面
   {
     path: "/admin/login",
