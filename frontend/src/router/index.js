@@ -79,7 +79,7 @@ const routes = [
       originalPage: "upload",
     },
   },
-]
+];
   // 管理员登录页面
   {
     path: "/admin/login",
