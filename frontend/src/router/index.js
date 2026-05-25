@@ -48,27 +48,36 @@ const PasteView = createOfflineAwareImport(() => import("../modules/paste/public
 const FileView = createOfflineAwareImport(() => import("../modules/fileshare/public/FileView.vue"), "文件预览页面");
 const MountExplorerView = createOfflineAwareImport(() => import("../modules/fs/MountExplorerView.vue"), "挂载浏览器");
 
-// 路由配置 - 优先落地图床/文件上传页面
+// 路由配置 - 完全对应原有的页面逻辑
 const routes = [
   {
     path: "/",
+    name: "Upload", // 👈 名字换成 Upload，让主域名落地加载图床
+    component: UploadView,
+    meta: {
+      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板",
+      originalPage: "upload", // 👈 关键：对应的 originalPage 也要改成 upload，欺骗后台开关和导航栏
+    },
+  },
+  {
+    path: "/paste", // 👈 把原本的文本编辑器开辟到 /paste 路径下
     name: "Home",
     component: HomeView,
     meta: {
       title: "在线剪贴板 - PastePic",
-      originalPage: "home",
+      originalPage: "home", // 👈 保持 home 的标记，让文本工具的功能逻辑依然正常工作
     },
   },
   {
-    path: "/upload",
-    name: "Upload",
+    path: "/upload", // 👈 新增这一项：确保如果别的地方跳 /upload，依然能正确找到图床，不影响原逻辑
+    name: "UploadLegacy",
     component: UploadView,
     meta: {
-      title: "PastePic ｜ 粘贴即上传的临时图窗与云剪切板",
+      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板",
       originalPage: "upload",
     },
   },
-  // 管理员登录页面
+  // 管理员登录页面 ... 后面所有的路由和守卫代码【原封不动】
   {
     path: "/admin/login",
     name: "AdminLogin",
