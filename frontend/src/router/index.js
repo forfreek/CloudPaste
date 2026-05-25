@@ -52,31 +52,32 @@ const MountExplorerView = createOfflineAwareImport(() => import("../modules/fs/M
 const routes = [
   {
     path: "/",
-    name: "Upload", 
-    component: UploadView, 
-    meta: {
-      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板", 
-      originalPage: "upload",
-    },
-  },
-  {
-    path: "/paste", 
     name: "Home",
-    component: HomeView, 
+    component: HomeView, // 👈 还原：根路径默认加载原项目的文本剪切板
     meta: {
       title: "在线剪贴板 - PastePic",
       originalPage: "home",
     },
   },
   {
-    path: "/upload", 
-    name: "UploadLegacy", 
-    component: UploadView,
+    path: "/upload",
+    name: "Upload",
+    component: UploadView, // 👈 还原：/upload 路径加载独立图床
     meta: {
-      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板", 
+      title: "PastePic ｜ 粘贴即上传的临时图床与云剪切板",
       originalPage: "upload",
     },
-  }, // 👈 这里的 ]; 被我删掉了，换成了逗号，让数组继续往下走
+  },
+  
+  // 管理员登录页面
+  {
+    path: "/admin/login",
+    name: "AdminLogin",
+    component: createOfflineAwareImport(() => import("../modules/admin/views/AdminLoginView.vue"), "管理员登录"),
+    meta: {
+      title: "登录 - PastePic",
+      originalPage: "admin-login",
+    }, // 👈 注意这里的逗号，确保和后面的路由连贯
   // 管理员登录页面
   {
     path: "/admin/login",
